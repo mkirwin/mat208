@@ -1,9 +1,10 @@
 (*Problem 5: divideAll takes two ints and returns the result of dividing the first by the second
- * It should return a tuple with componenets: 
+ * It should return a tuple with components: 
      * the integer quotient,
      * the integer remainder,
      * the real quotient*)
-fun divideAll(a,b) = (trunc(real(a)/real(b)), a mod b, real(a)/real(b));
+fun divideAll(0,0) = (0,0,0.0)
+    | divideAll(a,b) = (a div b, a mod b, real(a)/real(b));
 
 
 (*Problem 6: Write a function, reverse, that takes a string and reverses it.*)
