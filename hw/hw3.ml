@@ -9,8 +9,23 @@ fun inPosition(x::xs,k) = if k=0 then x else inPosition(xs,k-1);
 
 
 (*take: Takes two inputs, xs and k, and produces the list of the first k values of xs.*)
-
-fun take(x::xs,0) = nil
+(*Throws weird error for take([],k)*)
+fun take(nil,k) = nil
+    | take(x::xs,0) = nil
     | take(x::xs,k) = x :: take(xs,k-1)
 
-(*Doesn't work on k = size(xs), need to fix.*)
+(*flatten: Takes xs, an alpha list list, and produces the alpha list that results from conatenating the elements of xs.
+ fun flatten(nil) = nil
+    | flatten(x) = x
+    | flatten(x::xs) = flatten(x) @ flatten(xs);
+    *)
+
+
+(***************************************************************************************************************)
+(*Problem 2:*)
+
+(*intervalSet: Takes two integer inputs, m and n, and produces the integers set {m,m+1,m+2,...n }. If m>n, then produce empty set.}*)
+
+fun intervalSet(m,n) = if m>n then nil 
+    else if m=n then m 
+        else m::intervalSum(m+1,n);
