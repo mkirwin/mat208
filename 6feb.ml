@@ -24,8 +24,7 @@ fun setUnion(nil,ys) = ys
 
 fun setFilter(nil,g) = emptySet
   | setFilter(x::xs,g) = if g(x) then x::setFilter(xs,g) else setFilter(xs,g)
+  
 
-
-(*07 February 2017: List experimentation*)
-fun switchPairs(nil) = nil
-    | switchPairs((a,b)::rest) = (b,a)::switchPairs(rest);
+fun powerSet(nil) =[nil] (*Maybe need another box? questionmark*)
+    | powerSet(x::xs) = (* listMap(  , powerSet(xs))*) @ powerSet(xs);

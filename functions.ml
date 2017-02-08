@@ -99,4 +99,3 @@ fun exp3(a,n) = if n < 0 then 1.0/exp1(a,~n) else exp1(a,n)
 fun sumInitial(0) = 0
   | sumInitial(n) = sumInitial(n-1) + n
 
-
