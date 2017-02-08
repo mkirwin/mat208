@@ -61,10 +61,10 @@ fun setMax([]) =  raise EmptySet
 
 (* D *)    
 (*Make sure it's a set? so remove repeats?*)
-(*setify makes lists sets by removing repeated elements.*)
+(*setify makes lists sets by removing repeated elements
 fun setify(nil) = nil
     | setify(x::xs) = if isElem(x,xs) then setify(xs) else x :: setify(xs);
-     
+     *)
 
 fun setMap(nil, g) = nil
     | setMap(x::xs, g) = setify (g(x) :: setMap(xs,g));
