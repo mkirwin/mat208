@@ -43,13 +43,19 @@ fun intervalSet(m,n) = if m <= n then m :: intervalSet(m+1,n) else [];
 (*setIntersection: INSERT DESCRIPTION*)
 fun isElem(_,nil) = false
     | isElem(x,y::ys) = if x = y then true else isElem(x,ys);
+   
+(*Make sure it's a set? so remove repeats?*)
+(*setify makes lists sets by removing repeated elements *)
+fun setify(nil) = nil
+    | setify(x::xs) = if isElem(x,xs) then setify(xs) else x :: setify(xs);
+
 
 (*If you want any of the arguments to setIntersection to be [], you must indicate the 
  * type of the sets. For example: setIntersection([] : int list, []); 
  * The sets can be of any type, but they must both be of the same type. *)
 fun setIntersection(nil, _) = []
     | setIntersection(_, nil) = []
-    | setIntersection(x::xs, y::ys) = if isElem(x,y::ys) then x :: setIntersection (xs,y::ys) else setIntersection(xs,y::ys);
+    | setIntersection(x::xs, y::ys) = if isElem(x,y::ys) then setify(x :: setIntersection (xs,y::ys)) else setify(setIntersection(xs,y::ys));
 
 
 (* C *)    
@@ -60,12 +66,6 @@ fun setMax([]) =  raise EmptySet
 
 
 (* D *)    
-(*Make sure it's a set? so remove repeats?*)
-(*setify makes lists sets by removing repeated elements
-fun setify(nil) = nil
-    | setify(x::xs) = if isElem(x,xs) then setify(xs) else x :: setify(xs);
-     *)
-
 fun setMap(nil, g) = nil
     | setMap(x::xs, g) = setify (g(x) :: setMap(xs,g));
 
