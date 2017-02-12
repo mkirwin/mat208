@@ -6,14 +6,12 @@ fun len(nil) = 0
 fun sumProduct(nil) = (0,1)
   | sumProduct(x::xs) = let val (s,p) = sumProduct(xs) in (x+s,x*p) end  
 
-(*Maybe also called listMap*)
-fun myMap(f,nil) = nil
-  | myMap(f,x::xs) = f(x)::myMap(f,xs)
+fun listMap(f,nil) = nil
+  | listMap(f,x::xs) = f(x)::listMap(f,xs)
 
 
 val emptySet = nil
 
-(*Cute little notation, "_"*)
 fun isElem(_,nil) = false
   | isElem(x,y::ys) = if x = y then true else isElem(x,ys)
 
@@ -24,8 +22,3 @@ fun setUnion(nil,ys) = ys
 
 fun setFilter(nil,g) = emptySet
   | setFilter(x::xs,g) = if g(x) then x::setFilter(xs,g) else setFilter(xs,g)
-
-
-(*07 February 2017: List experimentation*)
-fun switchPairs(nil) = nil
-    | switchPairs((a,b)::rest) = (b,a)::switchPairs(rest);
