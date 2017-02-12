@@ -40,7 +40,7 @@ fun  zip (nil, _) = []
 fun intervalSet(m,n) = if m <= n then m :: intervalSet(m+1,n) else [];    
 
 (* B *)
-(*setIntersection: INSERT DESCRIPTION*)
+(*setIntersection: Takes two 'a sets and produces their intersections.*)
 fun isElem(_,nil) = false
     | isElem(x,y::ys) = if x = y then true else isElem(x,ys);
    
