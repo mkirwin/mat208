@@ -1,5 +1,3 @@
-(*datatype intOption = NONE | SOME of int;*)
-
 type 'a set = 'a list
 val emptySet = nil : 'a set
 
@@ -36,15 +34,7 @@ fun setMax(nil : int list) = NONE (* instead of throwing exception *)
     
 
 datatype natural = Zero | Successor of natural;
-(*
-val two = Successor(Successor(Zero))
-val three = Successor(two);
-*)
 
-(*
-fun toInt(Zero) = 0
-    toInt(Successor(n)) = 1 + toInt(n);
-*)
 fun isEven(Zero) = true
     | isEven(Successor(n)) = if (isEven(n)) then false else true;
 
