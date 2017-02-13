@@ -1,3 +1,5 @@
+(* Solutions by Mileti *)
+
 type 'a set = 'a list 
 
 val emptySet = nil : 'a set
