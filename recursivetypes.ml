@@ -43,6 +43,9 @@ fun isLessThan(n,Zero) = false
 fun plus(n,Zero) = n
   | plus(n,Successor(m)) = Successor(plus(n,m))
 
+fun minus(n,Zero) = n
+    | minus(Successor(n),Successor(m)) = minus(n,m);
+
 
 
 
@@ -62,3 +65,12 @@ fun append(Empty,ys) = ys
 fun take(xs,0) = Empty
   | take(Empty,k) = Empty
   | take(Cons(x,xs),k) = Cons(x,take(xs,k-1))
+
+
+
+
+
+
+
+
+
