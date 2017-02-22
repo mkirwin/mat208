@@ -43,9 +43,6 @@ fun isLessThan(n,Zero) = false
 fun plus(n,Zero) = n
   | plus(n,Successor(m)) = Successor(plus(n,m))
 
-fun minus(n,Zero) = n
-    | minus(Successor(n),Successor(m)) = minus(n,m);
-
 
 
 
