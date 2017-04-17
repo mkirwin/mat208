@@ -28,6 +28,7 @@ fun depth(Null) = 0
         in if Left > Right then 1 + Left else 1 + Right
         end;
 
+(*Problem 5*)
 fun klist(0, b::bs) = nil
     | klist(k,b::bs) = b::klist(k-1,bs);
 
@@ -50,9 +51,9 @@ fun listToBinTree([]) = Null
     | listToBinTree([a]) = Node(a,Null,Null)
     |listToBinTree(bs) =
         let 
-            val splitval = floor(real(len(bs))/2.0)
+            val splitval = ceil(real(len(bs))/2.0)
             val tuple = split(splitval,bs)
             val left = #1(tuple)
             val mid = #2(tuple)
             val right = #3(tuple)
-    in Node(mid, listToBinTree(left), listToBinTree(right)) end;
+         in Node(mid, listToBinTree(left), listToBinTree(right)) end;
