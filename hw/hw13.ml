@@ -51,3 +51,8 @@ fun addRat((a:IntInf.int, b),(c, d)) =
     in 
         (numer div gcd, denom div gcd)
     end;
+
+fun mult(a:IntInf.int,b) =
+    let val q = b div 2
+        val r = b mod 2
+    in (a+a)*q+r end;
