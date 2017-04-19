@@ -39,11 +39,6 @@ fun gcd(a : IntInf.int, 0 : IntInf.int) = a
 
 (* Start HW 13 here*)
 
-(* Use this to simplify, don't actually use helper function*)
-fun simplify(a,b) = 
-    let val gcd = gcd(a,b)
-    in ((a div gcd), (b div gcd))  end;
-
 fun addRat((a:IntInf.int, b),(c, d)) =
     let val numer = a*d+c*b
         val denom = d*b
