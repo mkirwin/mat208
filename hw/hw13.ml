@@ -39,6 +39,7 @@ fun gcd(a : IntInf.int, 0 : IntInf.int) = a
 
 (* Start HW 13 here*)
 
+(* Problem 1 *)
 fun addRat((a:IntInf.int, b),(c, d)) =
     let val numer = a*d+c*b
         val denom = d*b
@@ -47,7 +48,18 @@ fun addRat((a:IntInf.int, b),(c, d)) =
         (numer div gcd, denom div gcd)
     end;
 
+(* Problem 2 *)
+fun prob2a(0:int,b) = (0,0)
+    | prob2a(a:int ,b:int) =
+        let val (x,y) = prob2a(a-1,b)
+        in (x,y+1) end;
+
+
+(* Problem 3 *)    
 fun mult(a:IntInf.int,b) =
     let val q = b div 2
         val r = b mod 2
     in (a+a)*q+r end;
+
+
+
