@@ -49,11 +49,11 @@ fun addRat((a:IntInf.int, b),(c, d)) =
     end;
 
 (* Problem 2 *)
+(* Jemuel reminded me what you do with r in the first if statement! *)
 fun prob2a(0:int,b) = (0,0)
     | prob2a(a:int ,b:int) =
         let val (q,r) = prob2a(a-1,b)
-        in if r = b -1 then (q+1,r)  else (q,r+1) end;
-
+        in if r = b-1  then (q+1,0)  else (q,r+1) end;
 
 (* Problem 3 *)    
 fun mult(a:IntInf.int,b) =
