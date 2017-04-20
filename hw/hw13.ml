@@ -55,6 +55,13 @@ fun prob2a(0:int,b) = (0,0)
         let val (q,r) = prob2a(a-1,b)
         in if r = b-1  then (q+1,0)  else (q,r+1) end;
 
+fun prob2b(a,b) =
+    if a < b then (0,a) else 
+    let val diff = a-b
+        val (q,r) = prob2b(diff,b)
+    in (q+1,r) end;
+
+
 (* Problem 3 *)    
 fun mult(a:IntInf.int,b) =
     let val q = b div 2
