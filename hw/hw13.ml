@@ -69,6 +69,7 @@ fun mult(a:IntInf.int,b) =
     in (a+a)*q+r end;
 
 (* Problem 6 *)
+(* Minh reminded me that gcd(a,b) is just recursive call to gcd(b,a mod b) *)
 fun prob6(a,0) = (1,0)
     | prob6(0,b) = (0,1)
     | prob6(a,b) =
