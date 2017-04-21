@@ -68,5 +68,9 @@ fun mult(a:IntInf.int,b) =
         val r = b mod 2
     in (a+a)*q+r end;
 
-
-
+(* Problem 6 *)
+fun prob6(a,0) = (1,0)
+    | prob6(0,b) = (0,1)
+    | prob6(a,b) =
+        let val (X,Y) = prob6(b, a mod b)
+        in (Y, X-Y*(a div b)) end;
