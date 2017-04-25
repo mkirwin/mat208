@@ -54,6 +54,8 @@ fun isNotAce((a,b) : card,(c,d)) = if c = Ace then false else true;
 val allCards = cartProd(allRanks,allSuits);
 val allPairs = cartProd(allCards,allCards);
 
+val prob4 = setFilter(setFilter(setFilter(allPairs,isNotEqual),isSpade),isNotAce); 
+val lenProb4 = len(prob4);
 fun len([]) = 0 | len(x::xs) = 1 + len(xs);
 
 
