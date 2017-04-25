@@ -46,3 +46,14 @@ type card = rank*suit;
 
 val allSuits = [Club,Diamond,Spade,Heart];
 val allRanks = [Ace,Two,Three,Four,Five,Six,Seven,Eight,Nine,Ten,Jack,Queen,King];
+
+fun isNotEqual((a,b):card, (c,d)) = if (a,b) = (c,d) then false else true;
+fun isSpade((a,b) : card, (c,d)) = if b = Spade then true else false;
+fun isNotAce((a,b) : card,(c,d)) = if c = Ace then false else true;
+
+val allCards = cartProd(allRanks,allSuits);
+val allPairs = cartProd(allCards,allCards);
+
+fun len([]) = 0 | len(x::xs) = 1 + len(xs);
+
+
