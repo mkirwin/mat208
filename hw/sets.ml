@@ -24,6 +24,7 @@ fun isSubset(nil : ''a set,ys : ''a set) = true
 
 fun areEqualSets(xs : ''a set,ys : ''a set) = isSubset(xs,ys) andalso isSubset(ys,xs)
 
+
 fun intervalSet(m,n) : int set = if m > n then emptySet else m::intervalSet(m+1,n)
 
 fun listMap(f,nil) = nil
@@ -38,22 +39,16 @@ fun powerSet(nil : 'a set) : 'a set set = [nil]
 fun setMap(g,nil : ''a set) : ''b set = nil
   | setMap(g,x::xs) = setAddElem(g(x),setMap(g,xs))
 
+exception MaxOfEmptySet
 
-(*** Start Homework 14 Code ***)
-datatype suit = Club | Diamond | Heart | Spade;
-datatype rank = Ace | Two | Three | Four | Five | Six | Seven | Eight | Nine | Ten | Jack | Queen | King;
-type card = rank*suit;
+fun setMax(nil : int set) = raise MaxOfEmptySet
+  | setMax(x::nil) = x
+  | setMax(x::xs) = let val m = setMax(xs) in if x > m then x else m end
 
-val allSuits = [Club,Diamond,Spade,Heart];
-val allRanks = [Ace,Two,Three,Four,Five,Six,Seven,Eight,Nine,Ten,Jack,Queen,King];
 
-fun isNotEqual((a,b):card, (c,d)) = if (a,b) = (c,d) then false else true;
-fun isSpade((a,b):card, (c,d)) = if b = Spade then true else false;
-fun isNotAce((a,b):card,(c,d)) = if c = Ace then false else true;
+fun divisorSet(n) = setFilter(intervalSet(1,n),fn d => n mod d = 0)
 
-val allCards = cartProd(allRanks,allSuits);
-val allPairs = cartProd(allCards,allCards);
+fun gcd(m,n) = setMax(setIntersection(divisorSet(m),divisorSet(n)))
 
-val prob4 = setFilter(setFilter(setFilter(allPairs,isNotEqual),isSpade),isNotAce); 
-fun len([]) = 0 | len(x::xs) = 1 + len(xs);
-val lenProb4 = len(prob4);
+
+
