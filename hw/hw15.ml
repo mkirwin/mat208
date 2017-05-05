@@ -4,12 +4,18 @@ fun addLists(_,[] : IntInf.int list) = []
     | addLists([],_) = []
     | addLists(x::xs, y::ys) = x+y::addLists(xs,ys);
 
+(*
 fun nextPascalRow([]) = [1]
     | nextPascalRow(xs: IntInf.int list) =
       let val placeholder = 0 ::xs 
           val bookend = xs @ [0]
       in addLists(placeholder,bookend) end;
+*)
 
+fun nextPascalRow([]) = [1]
+    | nextPascalRow(x::xs) =
+        let val row = nextPascalRow(xs)
+        in addLists(0::row,row@[0]) end;
 fun pascalRowH(row,0) = row
     | pascalRowH(row,n) = 
         let val nxtrow = nextPascalRow(row)
