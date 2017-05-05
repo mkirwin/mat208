@@ -16,6 +16,7 @@ fun nextPascalRow([]) = [1]
     | nextPascalRow(x::xs) =
         let val row = nextPascalRow(xs)
         in addLists(0::row,row@[0]) end;
+        
 fun pascalRowH(row,0) = row
     | pascalRowH(row,n) = 
         let val nxtrow = nextPascalRow(row)
