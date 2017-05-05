@@ -6,9 +6,9 @@ fun addLists(_,[] : IntInf.int list) = []
 
 fun nextPascalRow([]) = [1]
     | nextPascalRow(xs: IntInf.int list) =
-      let val placeholder = 0 ::xs in
-      let val bookend = xs @ [0]
-      in addLists(placeholder,bookend) end end;
+      let val placeholder = 0 ::xs 
+          val bookend = xs @ [0]
+      in addLists(placeholder,bookend) end;
 
 fun pascalRowH(row,0) = row
     | pascalRowH(row,n) = 
