@@ -1,13 +1,8 @@
 (*Homework 15*)
 
-
 fun addLists(_,[] : IntInf.int list) = []
     | addLists([],_) = []
     | addLists(x::xs, y::ys) = x+y::addLists(xs,ys);
-
-(*fun nextPascalRow([] : IntInf.int list) = [1]
-    | nextPascalRow(x::xs) = x::addLists(x,xs)::nextPascalRow(xs);
-    *)
 
 fun nextPascalRow([]) = [1]
     | nextPascalRow(xs: IntInf.int list) =
@@ -16,6 +11,15 @@ fun nextPascalRow([]) = [1]
       in addLists(c,d) end end;
 
 fun pascalRowH(row,0) = row
-    | pascalRowH(row,n) = pascalRowH(nextPascalRow(row),n-1);
+    | pascalRowH(row,n) = 
+        let val nxtrow = nextPascalRow(row)
+        in pascalRowH(nxtrow,n-1) end;
 
 fun pascalRow(n) = pascalRowH([1],n);
+
+fun getKElem(0,x::xs) = x
+    | getKElem(k, x::xs) = getKElem(k-1, xs);
+
+fun choose(n,k) =
+    let val row = pascalRow(n)
+    in getKElem(k, row) end;
