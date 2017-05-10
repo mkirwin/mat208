@@ -56,22 +56,19 @@ fun subsetsOfSize(_,0) = [[]]
 
 (*** START HW 16 CODE ***)
 
+fun len([]) = 0
+    | len (x::xs) = 1 + len(xs);
+
 fun isDHelper([], n, len) = n = len 
     | isDHelper([x], n, len) = not (x = n)
     | isDHelper(x::xs, n, len) = 
         if x = n then false else isDHelper(xs, n+1, len);
 
-fun isDerangement(xs, len) = isDHelper(xs, 1, len);
+fun isDerangement(xs) = 
+    let val length = len(xs)
+    in isDHelper(xs, 1, length) end;
 
-fun len([]) = 0
-    | len (x::xs) = 1 + len(xs);
-
-fun isD(xs) = isDHelper(xs, 1, len(xs));
-
-fun derangements(n) = 
-    let val set = intervalSet(1,n)
-        val perms = perm(set)
-    in setFilter(perms,isD) end;
+fun derangements(n) = setFilter(perm(intervalSet(1,n)),isDerangement);
 
 fun derangementRatio(n) = 
     let val set = intervalSet(1,n)
@@ -79,5 +76,5 @@ fun derangementRatio(n) =
         val numerator = derangements(n)
         val numTotals = len(totals)
         val numNumers = len(numerator)
-        val frac = real(numNumers)/real(numTotals);
+        val frac = real(numNumers)/real(numTotals)
     in frac end;
