@@ -1,5 +1,5 @@
 (* Homework 16 *)
-
+use "../graphs.ml";
 type 'a set = 'a list 
 
 val emptySet = nil : 'a set
@@ -37,8 +37,6 @@ fun powerSet(nil : 'a set) : 'a set set = [nil]
 
 fun setMap(g,nil : ''a set) : ''b set = nil
   | setMap(g,x::xs) = setAddElem(g(x),setMap(g,xs))
-
-
 
 fun setRemoveElem(_,nil) = nil
   | setRemoveElem(a,b::bs) = if a = b then bs else b::setRemoveElem(a,bs)
@@ -78,3 +76,21 @@ fun derangementRatio(n) =
         val numNumers = len(numerator)
         val frac = real(numNumers)/real(numTotals)
     in frac end;
+
+(* Lukas helped me put all the pieces together and fix compile errors *)
+fun zeroes(0) = [] | zeroes(k) = 0::zeroes(k-1);
+
+fun composition(0,0) = [nil]
+    | composition(n,1) = [[n]]
+    | composition(0,k) = [zeroes(k)]
+    | composition(n,0) = nil
+    | composition(n,k) = 
+        setUnion(setMap(fn n=>0::n, composition(n,k-1)),setMap(fn n::ns=> n+1::ns,composition(n-1,k)));
+
+fun image(a : ''a, nil: (''a*'b) set) = nil : 'b set
+    | image(a,(x,y)::rs) = if a = x then y ::image(a,rs) else image(a,rs);
+
+fun codeGraph(nil,es) = nil
+    | codeGraph(v::vs,es) = (v::image(v,es))::codeGraph(vs,es);
+
+
