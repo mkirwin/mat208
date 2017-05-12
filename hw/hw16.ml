@@ -47,11 +47,19 @@ fun flatten(nil) = nil
 fun perm([]) = [[]]
   | perm(bs) = flatten(listMap(fn b => listMap(fn p => b::p,perm(setRemoveElem(b,bs))),bs))
 
-
 fun subsetsOfSize(_,0) = [[]]
   | subsetsOfSize([],_) = []
   | subsetsOfSize(b::bs,k) = listMap(fn cs => b::cs,subsetsOfSize(bs,k-1)) @ subsetsOfSize(bs,k)
 
+fun obtainSet(nil:(''a * ''a) set): ''a set = nil | obtainSet((x,y)::rs) = if x = y then x ::obtainSet(rs) else obtainSet(rs);
+
+fun imageSet(nil : ''a set, rs : (''a * ''b) set) = nil : ''b set | imageSet(c::cs,rs) = setUnion(image(c, rs), imageSet(cs, rs));
+
+fun thinSet(nil: ''a set, rs: (''a*''a) set): ''a set = nil | thinSet(y::ys,rs) = let val zs = thinSet(ys,rs) in if isElem(y, imageSet(zs, rs)) then zs else y::zs end;
+
+fun uniqueReps(rs: (''a * ''a) set): ''a set = thinSet(obtainSet(rs),rs);
+
+fun equivClasses(rs : (''a * ''a) set) : ''a set set = listMap(fn y => image(y, rs), uniqueReps(rs));
 (*** START HW 16 CODE ***)
 
 fun len([]) = 0
@@ -99,17 +107,4 @@ fun helperA([], a) = [] | helperA(x::xs, a) = cross(x, (dfs(x::xs,a)))@helperA(x
 
 fun prob4A((x::xs, ys): ''a graph) = helperA(x::xs, (x::xs,ys));
   
-fun card([]) = 0 | card(x::xs) = 1 + card(xs);
-
-fun obtainSet(nil:(''a * ''a) set): ''a set = nil | obtainSet((x,y)::rs) = if x = y then x ::obtainSet(rs) else obtainSet(rs);
-
-fun imageSet(nil : ''a set, rs : (''a * ''b) set) = nil : ''b set | imageSet(c::cs,rs) = setUnion(image(c, rs), imageSet(cs, rs));
-
-fun thinSet(nil: ''a set, rs: (''a*''a) set): ''a set = nil | thinSet(y::ys,rs) = let val zs = thinSet(ys,rs) in if isElem(y, imageSet(zs, rs)) then zs else y::zs end;
-
-fun uniqueReps(rs: (''a * ''a) set): ''a set = thinSet(obtainSet(rs),rs);
-
-fun equivClasses(rs : (''a * ''a) set) : ''a set set = listMap(fn y => image(y, rs), uniqueReps(rs));
-
-
-fun prob4B((x::xs,ys): ''a graph) = card(equivClasses(prob4A(x::xs,ys)));
+fun prob4B((x::xs,ys): ''a graph) = len(equivClasses(prob4A(x::xs,ys)));
