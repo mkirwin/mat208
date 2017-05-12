@@ -103,8 +103,8 @@ fun codeGraph(nil,es) = nil
 
 fun cross(x, []) = [] | cross(x,y::ys) = (x,y)::cross(x,ys);
 
-fun helperA([], a) = [] | helperA(x::xs, a) = cross(x, (dfs(x::xs,a)))@helperA(xs,a);
+fun walksH([], a) = [] | walksH(x::xs, a) = cross(x, (dfs(x::xs,a)))@walksH(xs,a);
 
-fun prob4A((x::xs, ys): ''a graph) = helperA(x::xs, (x::xs,ys));
+fun getUWWalks((x::xs, ys): ''a graph) = walksH(x::xs, (x::xs,ys));
   
-fun prob4B((x::xs,ys): ''a graph) = len(equivClasses(prob4A(x::xs,ys)));
+fun numConnected((x::xs,ys): ''a graph) = len(equivClasses(getUWWalks(x::xs,ys)));
