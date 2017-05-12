@@ -93,4 +93,28 @@ fun image(a : ''a, nil: (''a*'b) set) = nil : 'b set
 fun codeGraph(nil,es) = nil
     | codeGraph(v::vs,es) = (v::image(v,es))::codeGraph(vs,es);
 
+fun cross(x, []) = [] | cross(x,y::ys) = (x,y)::cross(x,ys);
+val cross = fn : 'a * 'b list -> ('a * 'b) list
 
+fun helperA([], a) = [] | helperA(x::xs, a) = cross(x, (dfs(x::xs,a)))@helperA(xs,a);
+val helperA = fn : ''a list * ''a graph -> (''a * ''a) list
+
+fun prob4A((x::xs, ys): ''a graph) = helperA(x::xs, (x::xs,ys));
+stdIn:10.5-10.64 Warning: match nonexhaustive
+          (x :: xs,ys) => ...
+  
+val prob4A = fn : ''a graph -> (''a * ''a) list
+
+fun card([]) = 0 | card(x::xs) = 1 + card(xs);
+
+fun obtainSet(nil:(''a * ''a) set): ''a set = nil | obtainSet((x,y)::rs) = if x = y then x ::obtainSet(rs) else obtainSet(rs);
+
+fun thinSet(nil: ''a set, rs: (''a*''a) set): ''a set = nil | thinSet(y::ys,rs) = let val zs = thinSet(ys,rs) in if isElem(y, imageSet(zs, rs)) then zs else y::zs end;
+
+fun uniqueReps(rs: (''a * ''a) set): ''a set = thinSet(obtainSet(rs),rs);
+
+fun equivClasses(rs : (''a * ''a) set) : ''a set set = listMap(fn y => image(y, rs), uniqueReps(rs));
+
+fun imageSet(nil : ''a set, rs : (''a * ''b) set) = nil : ''b set | imageSet(c::cs,rs) = setUnion(image(c, rs), imageSet(cs, rs));
+
+fun prob4B((x::xs,ys): ''a graph) = card(equivClasses(prob4A(x::xs,ys)));
