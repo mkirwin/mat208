@@ -1,26 +1,26 @@
-#,Track Title,URI,Artist(s)
-1,Thread,spotify:track:0jtCa3XLLrofXAuh3dQzy7,artist_name: Keane,
-2,Chocolate (Reworked),spotify:track:0G3ETQWG4sjlh5BOJzRfx8,artist_name: Snow Patrol,
-3,Black Gold - Joe Turner Remix,spotify:track:3hsDshahRwLgu5oAFyS7am,artist_name: Editors,artist_name:1: Joe Turner,
-4,Mine,spotify:track:0cnVBn7JsFlShF65EJe2Or,artist_name: The 1975,
-5,To The Ground,spotify:track:6MdbEX55Ks1oqGVwRb3nyX,artist_name: Death Cab for Cutie,
-6,Wait,spotify:track:3rTnGUeDrnZV22DvRuUuXr,artist_name: M83,
-7,One Day Like This,spotify:track:6H3S7yQjHn3ErG9o6v7qBs,artist_name: Elbow,
-8,This Is The Last Time,spotify:track:6IVlHRrjTKep5SS9kbcpTa,artist_name: Keane,
-9,Sleepless,spotify:track:720kcKRMGl2rJh6jsfu8Z5,artist_name: Novo Amor,
-10,I Always Wanna Die (Sometimes),spotify:track:7iPlcFvOMOzt6v0QvcAueZ,artist_name: The 1975,
-11,U (Man Like),spotify:track:2a8HLMRc6E0AM4xXiQ4wh6,artist_name: Bon Iver,
-12,Where You Are,spotify:track:6MhSbUQF8Y0Yslw6E0ck1u,artist_name: A R I Z O N A,
-13,Her Father In The Pool,spotify:track:3uTxibePaIRvQbUWK7J3Vb,artist_name: The National,
-14,Open Your Eyes (Reworked),spotify:track:6RsmXXyg5r8FqtM338caTl,artist_name: Snow Patrol,
-15,Politik,spotify:track:0u35Dpz37TY2M2j20RUdMf,artist_name: Coldplay,
-16,The Runner,spotify:track:6be1c0AWyPxxSS0qiYzoUC,artist_name: Foals,
-17,Don't Leave,spotify:track:4E2Yf4kLF6rIvh5nl6s5NC,artist_name: A R I Z O N A,
-18,Fake Plastic Trees,spotify:track:045sp2JToyTaaKyXkGejPy,artist_name: Radiohead,
-19,Everybody's Changing,spotify:track:5hkdfA87RZvNaxl6XiveOA,artist_name: Keane,
-20,Feelings,spotify:track:13S1Wmygt0pGS4iUyAWzC3,artist_name: M83,
-21,Nightvision,spotify:track:63JXZZRbmzooashakb0zbu,artist_name: Daft Punk,
-22,Woman,spotify:track:7pEUVoZDoQg4NQwmMcyjhQ,artist_name: Mumford & Sons,
-23,Shiver,spotify:track:0qksx8mV28lztYIZ1om8ml,artist_name: Coldplay,
-24,You Still Love Him - Demo,spotify:track:0ybA2nkFgWNKJYyWv4Lj7T,artist_name: White Lies,
-25,Temple of Sorrow,spotify:track:0LLxDVnGC8OqB8C25dV1S9,artist_name: M83,
+#,Track Title,URI,Artist(s),
+1,Thread,spotify:track:0jtCa3XLLrofXAuh3dQzy7,"artist_name": "Keane
+2,Chocolate (Reworked),spotify:track:0G3ETQWG4sjlh5BOJzRfx8,"artist_name": "Snow Patrol
+3,Black Gold - Joe Turner Remix,spotify:track:3hsDshahRwLgu5oAFyS7am,"artist_name": "Editors"artist_name:1": "Joe Turner
+4,Mine,spotify:track:0cnVBn7JsFlShF65EJe2Or,"artist_name": "The 1975
+5,To The Ground,spotify:track:6MdbEX55Ks1oqGVwRb3nyX,"artist_name": "Death Cab for Cutie
+6,Wait,spotify:track:3rTnGUeDrnZV22DvRuUuXr,"artist_name": "M83
+7,One Day Like This,spotify:track:6H3S7yQjHn3ErG9o6v7qBs,"artist_name": "Elbow
+8,This Is The Last Time,spotify:track:6IVlHRrjTKep5SS9kbcpTa,"artist_name": "Keane
+9,Sleepless,spotify:track:720kcKRMGl2rJh6jsfu8Z5,"artist_name": "Novo Amor
+10,I Always Wanna Die (Sometimes),spotify:track:7iPlcFvOMOzt6v0QvcAueZ,"artist_name": "The 1975
+11,U (Man Like),spotify:track:2a8HLMRc6E0AM4xXiQ4wh6,"artist_name": "Bon Iver
+12,Where You Are,spotify:track:6MhSbUQF8Y0Yslw6E0ck1u,"artist_name": "A R I Z O N A
+13,Her Father In The Pool,spotify:track:3uTxibePaIRvQbUWK7J3Vb,"artist_name": "The National
+14,Open Your Eyes (Reworked),spotify:track:6RsmXXyg5r8FqtM338caTl,"artist_name": "Snow Patrol
+15,Politik,spotify:track:0u35Dpz37TY2M2j20RUdMf,"artist_name": "Coldplay
+16,The Runner,spotify:track:6be1c0AWyPxxSS0qiYzoUC,"artist_name": "Foals
+17,Don't Leave,spotify:track:4E2Yf4kLF6rIvh5nl6s5NC,"artist_name": "A R I Z O N A
+18,Fake Plastic Trees,spotify:track:045sp2JToyTaaKyXkGejPy,"artist_name": "Radiohead
+19,Everybody's Changing,spotify:track:5hkdfA87RZvNaxl6XiveOA,"artist_name": "Keane
+20,Feelings,spotify:track:13S1Wmygt0pGS4iUyAWzC3,"artist_name": "M83
+21,Nightvision,spotify:track:63JXZZRbmzooashakb0zbu,"artist_name": "Daft Punk
+22,Woman,spotify:track:7pEUVoZDoQg4NQwmMcyjhQ,"artist_name": "Mumford & Sons
+23,Shiver,spotify:track:0qksx8mV28lztYIZ1om8ml,"artist_name": "Coldplay
+24,You Still Love Him - Demo,spotify:track:0ybA2nkFgWNKJYyWv4Lj7T,"artist_name": "White Lies
+25,Temple of Sorrow,spotify:track:0LLxDVnGC8OqB8C25dV1S9,"artist_name": "M83
